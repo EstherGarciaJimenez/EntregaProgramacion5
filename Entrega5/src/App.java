@@ -93,7 +93,14 @@ public class App {
                     if(p!=null){
                         System.out.println(p.ObtenerPeliculaComoFila(videoteca.getVelocidad()));
                     }
+                
                 }
+                System.out.println("--------------------------------------------------------------------------|");
+                double tiempoTotal = videoteca.tiempoVisionadoTotal();
+                double valorMedia = videoteca.valoracionMedia();
+
+                System.out.printf("| Tiempo de visionado total de la videoteca: %.2f min%n", tiempoTotal);
+                System.out.printf("| Valoración media: %.2f%n", valorMedia);
                 break;  
 
             case 5:

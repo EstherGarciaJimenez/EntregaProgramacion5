@@ -25,26 +25,31 @@ public class Pelicula {
         return new Pelicula(titulo, anioEstreno, duracionMinutos, valoracion, director);
     }
 
+    public float tiempoVisionado(float velocidad) {
+        return duracionMinutos / velocidad;
+    }
+
     public static String obtenerCabecera() {
-    return String.format("|%10s|%10s|%21s|%10s|%10s|%10s|",
+    return String.format("| %20s | %5s | %25s | %5s |  %7s  | %5s  | %5s|",
         "TÍTULO",
-        "AÑO ESTRENO",
+        "AÑO",
         "DIRECTOR",
-        "OSCAR GANADO",
-        "DURACIÓN (MIN)",
-        "TIEMPO VISIONADO (MIN)",
+        "OSCAR",
+        "DURACIÓN",
+        "TIEMPO VISIONADO",
         "VALORACIÓN"
     );
 }
 
     public String ObtenerPeliculaComoFila(float velocidad) {
-        return String.format("|%10s|%10d|%10s %10s|%10s|%10d|%10.2f|",
+        return String.format("| %20s | %5d | %10s %14s | %5s | %10d | %17.2f | %9.2f |",
             titulo,
             anioEstreno,
             director.getNombre(),
             director.getApellidos(),
             director.haGanadoOscarString(),
             duracionMinutos,
+            tiempoVisionado(velocidad),
             valoracion
         );
     }

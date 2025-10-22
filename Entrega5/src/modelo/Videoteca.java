@@ -16,6 +16,32 @@ public class Videoteca {
 
     }
 
+        // devuelve el tiempo total de visionado (minutos) usando la velocidad actual
+    public double tiempoVisionadoTotal() {
+        double total = 0.0;
+        for (int i = 0; i < contador; i++) {
+            Pelicula p = peliculas[i];
+            if (p != null) {
+                total += p.tiempoVisionado(this.velocidad);
+            }
+        }
+        return total;
+    }
+
+   // devuelve la valoración media 
+    public double valoracionMedia() {
+        if (contador == 0) return 0;
+        int reales = 0;
+        double suma = 0;
+        for (int i = 0; i < contador; i++) {
+            Pelicula p = peliculas[i];
+            if (p != null) {
+                 suma += p.getValoracion(); reales++; 
+                }
+        }
+        return  suma / reales;
+    }
+
    
 
     //MÉTODOS DE LÓGICA DE NEGOCIOS (CRUD)
