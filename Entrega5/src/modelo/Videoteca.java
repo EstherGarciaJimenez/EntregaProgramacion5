@@ -10,11 +10,13 @@ public class Videoteca {
 
 
     public Videoteca(int numeroPeliculas) {
-        videoteca = 1.0f;
-        peliculas = new Pelicula[numeroPeliculas];
-        pelicula =newPelicula[numeroPeliculas];
+        this.velocidad = 1.0f; 
+        this.peliculas = new Pelicula[numeroPeliculas];
+        this.contador = 0; // Inicializa contador
 
     }
+
+   
 
     //MÉTODOS DE LÓGICA DE NEGOCIOS (CRUD)
     public boolean addPelicula(Pelicula p) {
@@ -55,6 +57,13 @@ public class Videoteca {
     public void resetearVideoteca(int numeroPeliculas) {
         peliculas = new Pelicula[numeroPeliculas];
         contador = 0;
+    }
+     public float getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(float velocidad) {
+        this.velocidad = velocidad;
     }
     
 }

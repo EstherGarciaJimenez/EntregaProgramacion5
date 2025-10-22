@@ -19,17 +19,23 @@ public class Pelicula {
         this.director = director;
     }
 
-    public static Pelicula  crearPeliculaDatosCrudos(String titulo, int anioEstreno, int duracionMinutos, float valoracion, String nombreDirector, String apellidosDirector, boolean oscarGanado){
-        int anioEstreno, int duracionMinutos, float valoracion, String nombreDirector, String apellidosDirector, boolean oscarGanado
-        Director director = new Director( nombreDirector, apellidosDirector, oscarGanado);
-
-        Pelicula pelicula = new Pelicula(titulo, anioEstreno, duracionMinutos, valoracion, director);
-
-        return pelicula;
+    public static Pelicula crearPeliculaDatosCrudos(String titulo, int anioEstreno, int duracionMinutos, float valoracion, String nombreDirector, String apellidosDirector, boolean oscarGanado) {
         
+        Director director = new Director(nombreDirector, apellidosDirector, oscarGanado);
+        return new Pelicula(titulo, anioEstreno, duracionMinutos, valoracion, director);
     }
-    public String ObtenerPeliculaComoFila(float velocidad){
-        return String.format ("|%10s|%10d|%10s %10s|%10s|%10d %10.2f|%10.2f|", titulo, anioEstreno, director.getNombre(), director.getApellidos(),haganadoOscarString(), duracionMinutos, duracionMinutos, duracionMinutos/velocidad, valoracion); 
+
+    public String ObtenerPeliculaComoFila(float velocidad) {
+        return String.format("|%10s|%10d|%10s %10s|%10s|%10d %10.2f|%10.2f|",
+            titulo,
+            anioEstreno,
+            director.getNombre(),
+            director.getApellidos(),
+            director.haGanadoOscarString(),
+            duracionMinutos,
+            ((float)duracionMinutos)/velocidad,  
+            valoracion
+        );
     }
 
 
