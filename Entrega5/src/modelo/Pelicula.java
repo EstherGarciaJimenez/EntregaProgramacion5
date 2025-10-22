@@ -7,7 +7,6 @@ public class Pelicula {
     private int duracionMinutos;
     private float valoracion;
     private Director director;
-//generar getter y setter y un constructor con todos los atributos, dandole a source action
 
     
 
