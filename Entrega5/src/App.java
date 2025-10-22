@@ -76,11 +76,8 @@ public class App {
         System.err.println("No se ha podido añadir la pelicula");
         }
 
-
-            // LLamar a un método que añada la película
             // Informar al usuario si todo ha ido bien 
 
-                
             }
 
                 break;  
