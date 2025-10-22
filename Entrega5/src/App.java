@@ -34,12 +34,22 @@ public class App {
                 int numeroPeliculas = Esdia.readInt("Introduzca el nuevo tamaño de video", 1, 100);
                 videoteca.resetearVideoteca(numeroPeliculas);
                 System.out.println ("Sus peliculas han sido borradas");
-                System.out.printf("Nuevo tamaño: %d películas %n", videoteca.getPeliculas().length);//no se si esto esta bien
+                System.out.printf("Nuevo tamaño: %d películas %n", videoteca.getPeliculas().length);
 
                 break;
 
             case 2:
-                System.out.println("no se ha implementado todavia");
+            // Mostrar velocidad actual y permitir cambiarla
+                float nuevaVelocidad;
+             do {
+            nuevaVelocidad = Esdia.readFloat("Introduce nueva velocidad (>= 0.1): ");
+                if (nuevaVelocidad < 0.1f) {
+                System.err.println("Valor no válido: la velocidad debe ser al menos 0.1");
+                }
+            } while (nuevaVelocidad < 0.1f);
+                videoteca.setVelocidad(nuevaVelocidad);
+                System.out.printf("Velocidad actualizada a %.2f", videoteca.getVelocidad());
+
                 break;
 
             case 3:
@@ -78,6 +88,7 @@ public class App {
             case 4:
 
                 Pelicula [] pelis = videoteca.getPeliculas();
+                System.out.println(Pelicula.obtenerCabecera());
                 for (Pelicula p:pelis){
                     if(p!=null){
                         System.out.println(p.ObtenerPeliculaComoFila(videoteca.getVelocidad()));
