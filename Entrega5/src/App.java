@@ -62,7 +62,13 @@ public class App {
             //Pedir todos los datos
             String titulo = Esdia.readString("Titulo: ");
             int anioEstreno = Esdia.readInt("Año: ");
-            int duracionMinutos = Esdia.readInt("Duracion en minutos: ");
+            int duracionMinutos;
+            do {
+            duracionMinutos = Esdia.readInt("Duracion en minutos (entero positivo): ");
+                if (duracionMinutos <= 0) {
+                    System.err.println("La duración debe ser un número entero positivo. Inténtalo de nuevo.");
+                }
+            } while (duracionMinutos <= 0);
             float valoracion = Esdia.readFloat("Valoracion: ", 0, 10);
             String nombre = Esdia.readString("Nombre del director: ");
             String apellidos = Esdia.readString("Apellidos del director: ");
@@ -92,7 +98,7 @@ public class App {
                     }
                 
                 }
-                System.out.println("------------------------------------------------------------------------------------------------------|");
+                System.out.println("----------------------------------------------------------------------------------------------------------------|");
                 double tiempoTotal = videoteca.tiempoVisionadoTotal();
                 double valorMedia = videoteca.valoracionMedia();
 
