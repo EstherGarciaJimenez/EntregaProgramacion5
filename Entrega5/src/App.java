@@ -31,13 +31,26 @@ public class App {
         switch (opcion) {
             case 1:
                 //TODO: resetear la videoteca con el valor introducido por el usuario
-                int numeroPeliculas = Esdia.readInt("Introduzca el nuevo tamaño de video", 1, 100);
-                videoteca.resetearVideoteca(numeroPeliculas);
-                System.out.println ("Sus peliculas han sido borradas");
+                int numeroPeliculas = Esdia.readInt("Introduzca el nuevo tamaño de videoteca (1-100): ", 1, 100);
+                if (videoteca == null) {
+                    // crear por primera vez
+                    videoteca = new Videoteca(numeroPeliculas);
+                    System.out.println("Videoteca creada.");
+                } else {
+                    // ya existe
+                    if (videoteca.getContador() > 0) {
+                        System.out.printf("Atención: hay %d películas almacenadas. Se perderán si continúa.%n", videoteca.getContador());
+                        boolean confirmar = Esdia.yesOrNo("¿Desea continuar y recrear la videoteca? (s/n): ");
+                        if (!confirmar) {
+                            System.out.println("Operación cancelada.");
+                            break;
+                        }
+                    }
+                    videoteca.resetearVideoteca(numeroPeliculas);
+                    System.out.println("Videoteca reiniciada.");
+                }
                 System.out.printf("Nuevo tamaño: %d películas %n", videoteca.getPeliculas().length);
-
                 break;
-
             case 2:
             // Mostrar velocidad actual y permitir cambiarla
                 float nuevaVelocidad;
