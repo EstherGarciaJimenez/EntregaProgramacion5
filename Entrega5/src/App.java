@@ -92,7 +92,7 @@ public class App {
                     }
                 
                 }
-                System.out.println("--------------------------------------------------------s---------------------------------------------|");
+                System.out.println("------------------------------------------------------------------------------------------------------|");
                 double tiempoTotal = videoteca.tiempoVisionadoTotal();
                 double valorMedia = videoteca.valoracionMedia();
 
